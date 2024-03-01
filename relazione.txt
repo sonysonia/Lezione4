@@ -1,0 +1,29 @@
+    Analisi della transmissione di pacchetti all'interni delle stessa rete
+                            e verso reti diversi:
+
+    Essendo due reti diversi, abbiamo bisogno per prima cosa collegare,un
+router che va collegato ai switch delle diverse reti che collegano i loro
+vari dispositivi per instradare i paccchetti di dati all'interno della rete
+locale.
+
+    per configurare il router in modo tale che le comunicazioni funzionino 
+in modo corretto, impostiamo nei dispositivi di interesse il default gateway.
+
+    NOTE: quando si mando un pacchetto di dati, dai dettagli Inbound PDU,possiamo
+notare che si memorizzino: SRC IP , DST IP e l'impostazione dell'indirrizzo di destinazione 
+(DEST ADDR) e il SRC Address che corrispondono ai MAC Address, poi altri vari informazioni
+relativi ai pacchetti di dati e alla transmissione.
+
+    1-Quando si mandano dati dal laptop-PT0 con IP 192.168.100.100 con il PC.PT-PC0 con
+IP 192.168.100.103. Il pacchetto di dati viene instradato direttamente dal mittente
+al destinatore attraverso lo switch poiché appartengono alla stessa rete.
+in effetti, dal Inbuond PDU, sono noti il SRC IP, DEST IP e il SRC ADDR e DES ADDR che
+corrispondono ai due dispositivi (vedere fig 1 e 2).
+
+    2-Quando si mandano pacchetti di dati dal laptop-PT0 con IP 192.168.100.100 con il
+laptop-PT2 con IP 192.168.200.100, il SRC ADDR corrisponde al MAC Address del mittente
+laptop-PT0 ma il DEST ADDRR corrisponde al MAC Address dell'interfaccia del router
+quando lo swicth0 instrada il pacchetto. quindi il pacchetto va prima madato al router 
+che poi prenderà in carico l'invio verso l'altra rete(vedere fig3);
+poi il router lo invia allo swicth1 con DEST ADDR il destinatario principale laptop-PT2
+con IP 192.168.200.100 (vedere fig4).
